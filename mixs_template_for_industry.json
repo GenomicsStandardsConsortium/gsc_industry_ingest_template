@@ -1,5 +1,5 @@
 
-# generic structure
+// generic structure
 {
   "instrument": "name",
   "description" : "string",
@@ -10,40 +10,34 @@
   "optional_parameters" : {
     "oparam1" : " 1..5",
     "oparam2" : [ "full moon", "half moon", "lunar eclipse"]
-# end users can put in their extensions in the same way
+// end users can put in their extensions in the same way
   }
-  }
-
-  }
-
 }
 
+// a vendor would produce something like this for their current and past instruments and kits
 
-###
-# a vendor would produce something like this for their current and past instruments and kits
+// the following 3 records illustrate a decision to be made by the vendor
 
-# the following 3 records illustrate a decision to be made by the vendor
-
-# DNA isolation kit examples
-# either one record with 3 types
+// DNA isolation kit examples
+// either one record with 3 types
 { "kit" : "Qiagen DNeasy PowerSoil",
   "parameters" :
       {
       "version" : [ "v1", "v2", "v3" ],
       "type" : ["basic" , "magbead" , "pro"],
       "format" : [ "tube", "plate" ],
-      "version" : int,
+      "version" : "string.string.string",
     }
 }
 
-#or 3 records
+//or 3 records
 
 { "kit" : "Qiagen DNeasy PowerSoil",
   "parameters" :
       {
       "version" : [ "v1", "v2", "v3" ],
       "format" : [ "tube", "plate" ],
-      "version" : int,
+      "version" : "string.string.string",
     }
 }
 
@@ -53,7 +47,7 @@
       {
       "version" : [ "v1", "v2", "v3" ],
       "format" : [ "tube", "plate" ],
-      "version" : int,
+      "version" : "string.string.string",
     }
 }
 
@@ -62,49 +56,48 @@
       {
       "version" : [ "v1", "v2", "v3" ],
       "format" : [ "tube", "plate" ],
-      "version" : int,
+      "version" : "string.string.string",
     }
 }
 
-## library construction examples
+// library construction examples
 
 { "kit" : "TruSeq",
   "parameters" :
       {
       "version" : [ "v1", "v2", "v3" ],
       "format" : [ "tube", "plate" ],
-      "version" : int,
+      "version" : "string.string.string",
     }
 
 }
 
-
-
-#####
+//
 { "instrument" : "cBot",
   "parameters" :
     {
       "chemistry_version" : [ "v1", "v2", "v3" ],
-      "version" : int,
+      "version" : "string.string.string",
     }
 }
 
-
-#####
-# sequencing machines
+// sequencing machines
 { "instrument" : "MiSeq",
   "parameters" :
     {
       "chemistry_version" : [ "v1", "v2", "v3" ],
-      "run_length": [ 50, 100, 2x100, 150, 2x150, 200, 2x250, 300, 2x300 ]
+      "run_length": [ 50, 100, 100, 150, 150, 200, 250, 300, 300 ],
+      "paired": [true, false],
     }
 }
+
 
 { "instrument" : "HiSeq2500",
   "parameters" :
     {
       "chemistry_version" : [ "v1", "v2", "v3" ],
-      "run_length": [ 50, 100, 2x100, 150, 2x150, 200, 2x250 ],
+      "run_length": [ 50, 100, 100, 150, 150, 200, 250 ],
+      "paired": [true, false],
       "mode" : [ "rapid", "high_output"]
     }
 }
